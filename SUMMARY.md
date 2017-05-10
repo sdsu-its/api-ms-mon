@@ -7,4 +7,5 @@
 ## Methods
 
 * [Authentication](authentication.md)
+* [Recorders](recorders.md)
 

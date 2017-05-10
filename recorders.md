@@ -12,14 +12,10 @@ You can either request information on all of the Recorders, via this endpoint, o
 Recorder request using jQuery. A Session Token, while recommended, is not required for these requests, as they are Read Only.
 
 ```js
-var payload = {};
-
-
 $.ajax({
   type: "GET",
   url: API_ROOT + '/recorders',
-  data: payload,
-  success: success,
+  success: success
 });
 ```
 
@@ -66,14 +62,10 @@ If you know the specific ID of a recorder, you can retrieve the information for 
 Recorder request using jQuery. A Session Token, while recommended, is not required for these requests, as they are Read Only. In the provided JS example, `RECORDER_ID` is the ID of the recorder you would like to retrieve. 
 
 ```js
-var payload = {};
-
-
 $.ajax({
 type: "GET",
 url: API_ROOT + '/recorders/' + RECORDER_ID,
-data: payload,
-success: success,
+success: success
 });
 ```
 

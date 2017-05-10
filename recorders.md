@@ -28,18 +28,34 @@ $.ajax({
 If successful (**200**), all of the Recorders in the DB are returned as a JSON array.
 
 ```json
-
+[
+  {
+    "Online": true,
+    "LastSeen": "May 10, 2017 2:15:08 PM",
+    "Id": "16058358100749308de350eaf446fb88a4",
+    "Name": "SC-MEDIASITE-SHW011",
+    "Description": "",
+    "SerialNumber": "001-9400223",
+    "Version": "Mediasite Recorder 7.1.12 Build 3840",
+    "LastVersionUpdateDate": "2016-12-16T22:25:26.673Z",
+    "PhysicalAddress": "00-30-48-FF-FF-FF",
+    "ImageVersion": "7.1.10"
+  },
+  {
+    "Online": true,
+    "LastSeen": "May 10, 2017 2:15:08 PM",
+    "Id": "18f6c548a5eb4ba38ea9c0b7986b99764a",
+    "Name": "SC-Mediasite-GMCS301",
+    "Description": "",
+    "SerialNumber": "003-1740526",
+    "Version": "Mediasite Recorder 7.1.12 Build 3853",
+    "LastVersionUpdateDate": "2017-02-10T04:33:14.787Z",
+    "PhysicalAddress": "54-BE-F7-FF-FF-FF",
+    "ImageVersion": "7.1.10"
+  }
+]
 ```
 
-
-If either the username or password or incorrect a status **404** is returned, along with a JSON error message. All expected errors will return a status message, along with a possible explanation of why the error occurred.
-
-```json
-{
-  "status": "Error",
-  "message": "That user does not exist or the password is incorrect."
-}
-```
 {% endmethod %}
 
 {% method %}
@@ -82,12 +98,12 @@ If successful (**200**), all of the Recorders in the DB are returned as a JSON a
 ```
 
 
-If either the username or password or incorrect a status **404** is returned, along with a JSON error message. All expected errors will return a status message, along with a possible explanation of why the error occurred.
+If no recorders with the specified ID exist, a status **404** is returned, along with a JSON error message.
 
 ```json
 {
 "status": "Error",
-"message": "That user does not exist or the password is incorrect."
+"message": "No recorders with that ID were found"
 }
 ```
 {% endmethod %}

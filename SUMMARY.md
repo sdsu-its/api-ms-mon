@@ -2,8 +2,9 @@
 
 ## Overview
 
-* [My Awesome API](README.md)
+* [Mediasite Recorder Monitor API](README.md)
 
 ## Methods
 
-* [Defining Methods](methods.md)
+* [Authentication](methods.md)
+

@@ -6,5 +6,5 @@
 
 ## Methods
 
-* [Authentication](methods.md)
+* [Authentication](authentication.md)
 

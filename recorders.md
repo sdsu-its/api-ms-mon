@@ -9,7 +9,7 @@ All requests must include a Session Header, else will return a **401-Unauthorize
 You can either request information on all of the Recorders, via this endpoint, or a recorder with a specific id, defined below. 
 
 {% sample lang="js" %}
-Recorder request using jQuery. You will need to supply the `SESSION_TOKEN` which can be obtained during [user authentication](/authentication.md). 
+Recorder request using jQuery. A Session Token, while recommended, is not required for these requests, as they are Read Only.
 
 ```js
 var payload = {};
@@ -20,7 +20,6 @@ $.ajax({
   url: API_ROOT + '/recorders',
   data: payload,
   success: success,
-  headers: {"session": SESSION_TOKEN}
 });
 ```
 
@@ -64,7 +63,7 @@ If successful (**200**), all of the Recorders in the DB are returned as a JSON a
 If you know the specific ID of a recorder, you can retrieve the information for only that recorder, provided it is in the DB.
 
 {% sample lang="js" %}
-Recorder request using jQuery. You will need to supply the `SESSION_TOKEN` which can be obtained during [user authentication](/authentication.md). In the provided JS example, `RECORDER_ID` is the ID of the recorder you would like to retrieve. 
+Recorder request using jQuery. A Session Token, while recommended, is not required for these requests, as they are Read Only. In the provided JS example, `RECORDER_ID` is the ID of the recorder you would like to retrieve. 
 
 ```js
 var payload = {};
@@ -75,7 +74,6 @@ type: "GET",
 url: API_ROOT + '/recorders/' + RECORDER_ID,
 data: payload,
 success: success,
-headers: {"session": SESSION_TOKEN}
 });
 ```
 

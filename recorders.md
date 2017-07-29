@@ -25,7 +25,6 @@ If successful (**200**), all of the Recorders in the DB are returned as a JSON a
 ```json
 [
   {
-    "Online": true,
     "LastSeen": "May 10, 2017 2:15:08 PM",
     "Id": "16058358100749308de350eaf446fb88a4",
     "Name": "SC-MEDIASITE-SHW011",
@@ -34,7 +33,8 @@ If successful (**200**), all of the Recorders in the DB are returned as a JSON a
     "Version": "Mediasite Recorder 7.1.12 Build 3840",
     "LastVersionUpdateDate": "2016-12-16T22:25:26.673Z",
     "PhysicalAddress": "00-30-48-FF-FF-FF",
-    "ImageVersion": "7.1.10"
+    "ImageVersion": "7.1.10",
+    "status": "IDLE"
   },
   {
     "Online": true,
@@ -46,7 +46,8 @@ If successful (**200**), all of the Recorders in the DB are returned as a JSON a
     "Version": "Mediasite Recorder 7.1.12 Build 3853",
     "LastVersionUpdateDate": "2017-02-10T04:33:14.787Z",
     "PhysicalAddress": "54-BE-F7-FF-FF-FF",
-    "ImageVersion": "7.1.10"
+    "ImageVersion": "7.1.10",
+    "status": "IDLE"
   }
 ]
 ```
@@ -74,7 +75,6 @@ If successful (**200**), all of the Recorders in the DB are returned as a JSON a
 
 ```json
 {
-  "Online": true,
   "LastSeen": "May 10, 2017 2:15:08 PM",
   "Id": "16058358100749308de350eaf446fb88a4",
   "Name": "SC-MEDIASITE-SHW011",
@@ -83,7 +83,8 @@ If successful (**200**), all of the Recorders in the DB are returned as a JSON a
   "Version": "Mediasite Recorder 7.1.12 Build 3840",
   "LastVersionUpdateDate": "2016-12-16T22:25:26.673Z",
   "PhysicalAddress": "00-30-48-FF-FF-FF",
-  "ImageVersion": "7.1.10"
+  "ImageVersion": "7.1.10",
+  "status": "IDLE"
 }
 ```
 

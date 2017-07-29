@@ -10,22 +10,25 @@ This request is used to initially authenticate a user. It can also be used to ve
 
 The password needs to be sent as a Base64 encoded string. This allows for complex passwords, that would otherwise break the JSON formatting if not encoded properly.
 
-If the email and password are correct, the response from the server will contain a `session` header; this is your session token. You will want to save this, possible in a Cookie, Global Variable, etc. You should keep it relatively secure, since it is used to authenticate with the API for all further interactions, but will eventually expire. The tokens TTL is set in the Server's Vault configuration[^1].
+If the email and password are correct, the response from the server will contain a `JSESSIO` header; this is your session token. You will want to save this, possible in a Cookie, Global Variable, etc. You should keep it relatively secure, since it is used to authenticate with the API for all further interactions, but will eventually expire. The tokens TTL is set in the Server's Vault configuration[^1].
 
 {% sample lang="js" %}
-Login request using jQuery. You will need to fill the object yourself, this example uses example content selectors.
+Login request using jQuery. You will need to fill the object yourself, this example uses example content selectors. You can also use a `<form>` and some `onsubmit` js to complete this request, which is how the Web Interface completes this request.
+
 
 ```js
-var payload = {};
-payload.email = $('#loginEmail').val();
-payload.password = bota($('#loginPassword').val());
+
+var form_data = new FormData();
+
+form_data.append("email", $('#loginEmail').val());
+form_data.append("password", bota($('#loginPassword').val()));
 
 $.ajax({
   type: "POST",
   url: API_ROOT + '/login',
-  data: payload,
+  data: form_data,
   success: success,
-  dataType: 'json'
+  dataType: 'application/x-www-form-urlencoded'
 });
 ```
 

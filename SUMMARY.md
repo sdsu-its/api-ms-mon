@@ -3,6 +3,7 @@
 ## Overview
 
 * [Mediasite Recorder Monitor API](README.md)
+* [Recorder Statuses](recorder-statuses.md)
 
 ## Methods
 

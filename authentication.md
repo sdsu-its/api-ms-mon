@@ -10,7 +10,7 @@ This request is used to initially authenticate a user. It can also be used to ve
 
 The password needs to be sent as a Base64 encoded string. This allows for complex passwords, that would otherwise break the JSON formatting if not encoded properly.
 
-If the email and password are correct, the response from the server will contain a `JSESSIO` header; this is your session token. You will want to save this, possible in a Cookie, Global Variable, etc. You should keep it relatively secure, since it is used to authenticate with the API for all further interactions, but will eventually expire. The tokens TTL is set in the Server's Vault configuration[^1].
+If the email and password are correct, the response from the server will contain a `JSESSION` header; this is your session token. You will want to save this, possible in a Cookie, Global Variable, etc. You should keep it relatively secure, since it is used to authenticate with the API for all further interactions, but will eventually expire.
 
 {% sample lang="js" %}
 Login request using jQuery. You will need to fill the object yourself, this example uses example content selectors. You can also use a `<form>` and some `onsubmit` js to complete this request, which is how the Web Interface completes this request.
@@ -33,7 +33,7 @@ $.ajax({
 ```
 
 {% common %}
-If successful (**200**), the user object corresponding to the username and password pair that were submitted is returned.
+If successful a `SEE_OTHER` redirect (**303**) is returned, directing the user to the index page. , the user object corresponding to the username and password pair that were submitted is returned.
 
 ```json
 {
@@ -43,16 +43,17 @@ If successful (**200**), the user object corresponding to the username and passw
   "notify": true
 }
 ```
-Also, a `session` header will be included in the response, this is the session token that you will need to include in all future requests, and will serve to identify the user.
+Also, a `JSESSION` header will be included in the response, this is the session token that you will need to include in all future requests, and will serve to identify the user.
 
-If either the username or password or incorrect a status **404** is returned, along with a JSON error message. All expected errors will return a status message, along with a possible explanation of why the error occurred.
+If either the username or password or incorrect a status a `SEE_OTHER` redirect **303** is returned, directing the user to the Login Page.
+
+If the request is incomplete, a status of **400** (Bad Request) is returned, along with a JSON error message.
 
 ```json
 {
-  "status": "Error",
-  "message": "That user does not exist or the password is incorrect."
+  "status": "error",
+  "message": "Email or Password not included in request"
 }
 ```
-{% endmethod %}
 
-[^1] The Vault settings can be changed in real time, however the WebApp would need to be restarted for the TTL changes to take effect. More information on the Vault configuration can be found in the WebApp repo at: https://github.com/sdsu-its/MediaSite-Recorder-Monitor.
+{% endmethod %}
